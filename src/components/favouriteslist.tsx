@@ -1,11 +1,11 @@
 import { FavouriteItem } from "./favourite";
 
 interface FavouriteItemsProps {
-  handleAddToFavourites(input: BabyProp[]): void;
-  favourites: BabyProp[];
+  handleAddToFavourites(input: Baby[]): void;
+  favourites: Baby[];
 }
 
-type BabyProp = {
+type Baby = {
   name: string;
   sex: string;
   id: number;

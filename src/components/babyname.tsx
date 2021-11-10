@@ -1,15 +1,15 @@
 interface Props {
-  handleAddToFavourites: React.Dispatch<React.SetStateAction<BabyProp[]>>;
-  favourites: BabyProp[];
-  BabyName: BabyProp;
+  handleAddToFavourites: React.Dispatch<React.SetStateAction<Baby[]>>;
+  favourites: Baby[];
+  BabyName: Baby;
 }
-type BabyProp = {
+type Baby = {
   name: string;
   sex: string;
   id: number;
 };
 
-export function Baby(props: Props): JSX.Element {
+export function BabyButton(props: Props): JSX.Element {
   return (
     <>
       {props.BabyName.sex === "f" ? (

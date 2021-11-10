@@ -1,15 +1,15 @@
-import { Baby } from "./babyname";
+import { BabyButton } from "./babyname";
 
 interface Props {
   searchText: string;
   searchSex: string;
-  handleAddToFavourites: React.Dispatch<React.SetStateAction<BabyProp[]>>;
-  favourites: BabyProp[];
-  handleAddtoBabyList: React.Dispatch<React.SetStateAction<BabyProp[]>>;
-  BabyList: BabyProp[];
+  handleAddToFavourites: React.Dispatch<React.SetStateAction<Baby[]>>;
+  favourites: Baby[];
+  handleAddtoBabyList: React.Dispatch<React.SetStateAction<Baby[]>>;
+  BabyList: Baby[];
 }
 
-type BabyProp = {
+type Baby = {
   name: string;
   sex: string;
   id: number;
@@ -20,7 +20,7 @@ export function Babies(props: Props): JSX.Element {
     const sortedBabies = props.BabyList.filter((bab) =>
       bab.name.toLowerCase().includes(props.searchText.toLowerCase())
     );
-    let sortedandOrderedBabies: BabyProp[] = sortedBabies.sort((a, b) =>
+    let sortedandOrderedBabies: Baby[] = sortedBabies.sort((a, b) =>
       a.name > b.name ? 1 : b.name > a.name ? -1 : 0
     );
     if (props.searchSex !== "") {
@@ -28,9 +28,8 @@ export function Babies(props: Props): JSX.Element {
         (bab) => bab.sex === props.searchSex
       );
     }
-
     const objectBabies = sortedandOrderedBabies.map((bab) => (
-      <Baby
+      <BabyButton
         key={bab.id}
         BabyName={{ name: bab.name, sex: bab.sex, id: bab.id }}
         handleAddToFavourites={props.handleAddToFavourites}
