@@ -3,6 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import { Search } from "./components/SearchBar";
 import { FavouriteItems } from "./components/favouriteslist";
+import babies from "./babies.json";
 
 type BabyProp = {
   name: string;
@@ -14,6 +15,7 @@ function App(): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
   const [searchSex, setSearchSex] = useState<string>("");
   const [favourites, setFavourites] = useState<BabyProp[]>([]);
+  const [babyList, setBabyList] = useState<BabyProp[]>(babies);
 
   return (
     <>
@@ -35,6 +37,8 @@ function App(): JSX.Element {
         searchSex={searchSex}
         handleAddToFavourites={setFavourites}
         favourites={favourites}
+        BabyList={babyList}
+        handleAddtoBabyList={setBabyList}
       />
     </>
   );

@@ -1,4 +1,3 @@
-import babies from "../babies.json";
 import { Baby } from "./babyname";
 
 interface Props {
@@ -6,6 +5,8 @@ interface Props {
   searchSex: string;
   handleAddToFavourites: React.Dispatch<React.SetStateAction<BabyProp[]>>;
   favourites: BabyProp[];
+  handleAddtoBabyList: React.Dispatch<React.SetStateAction<BabyProp[]>>;
+  BabyList: BabyProp[];
 }
 
 type BabyProp = {
@@ -16,10 +17,10 @@ type BabyProp = {
 
 export function Babies(props: Props): JSX.Element {
   function filterBabies() {
-    const sortedBabies = babies.filter((bab) =>
+    const sortedBabies = props.BabyList.filter((bab) =>
       bab.name.toLowerCase().includes(props.searchText.toLowerCase())
     );
-    let sortedandOrderedBabies = sortedBabies.sort((a, b) =>
+    let sortedandOrderedBabies: BabyProp[] = sortedBabies.sort((a, b) =>
       a.name > b.name ? 1 : b.name > a.name ? -1 : 0
     );
     if (props.searchSex !== "") {
@@ -27,6 +28,7 @@ export function Babies(props: Props): JSX.Element {
         (bab) => bab.sex === props.searchSex
       );
     }
+
     const objectBabies = sortedandOrderedBabies.map((bab) => (
       <Baby
         key={bab.id}
@@ -37,7 +39,6 @@ export function Babies(props: Props): JSX.Element {
     ));
     return objectBabies;
   }
-
   return (
     <>
       <div className="allbabies">{filterBabies()}</div>

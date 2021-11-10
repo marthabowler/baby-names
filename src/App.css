@@ -1,11 +1,17 @@
 .girl {
-  color: palevioletred;
-  background-color: pink;
+  color: green;
+  background-color: goldenrod;
+  border: 2px;
+  border-radius: 3px;
+  margin: 3px;
 }
 
 .boy {
-  color: blue;
-  background-color: paleturquoise;
+  color: black;
+  background-color: grey;
+  border: 2px;
+  border-radius: 3px;
+  margin: 3px;
 }
 
 .fav {
