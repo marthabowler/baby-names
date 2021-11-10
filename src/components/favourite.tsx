@@ -19,16 +19,13 @@ export function FavouriteItem(props: FavouriteItemProps): JSX.Element {
         <button
           className="girl"
           onClick={() => {
-            {
-              removeFavourites(
-                props.BabyName.name,
-                props.favourites,
-                props.handleAddToFavourites
-              );
-            }
-            {
-              props.handleAddtoBabyList([...props.BabyList, props.BabyName]);
-            }
+            removeFavourites(
+              props.BabyName.name,
+              props.favourites,
+              props.handleAddToFavourites
+            );
+
+            props.handleAddtoBabyList([...props.BabyList, props.BabyName]);
           }}
         >
           {props.BabyName.name}
@@ -37,17 +34,13 @@ export function FavouriteItem(props: FavouriteItemProps): JSX.Element {
         <button
           className="boy"
           onClick={() => {
-            {
-              removeFavourites(
-                props.BabyName.name,
-                props.favourites,
-                props.handleAddToFavourites
-              );
-            }
+            removeFavourites(
+              props.BabyName.name,
+              props.favourites,
+              props.handleAddToFavourites
+            );
 
-            {
-              props.handleAddtoBabyList([...props.BabyList, props.BabyName]);
-            }
+            props.handleAddtoBabyList([...props.BabyList, props.BabyName]);
           }}
         >
           {props.BabyName.name}

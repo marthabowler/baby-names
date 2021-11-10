@@ -1,5 +1,3 @@
-import { parentPort } from "worker_threads";
-
 interface Props {
   handleAddToFavourites: React.Dispatch<React.SetStateAction<Baby[]>>;
   favourites: Baby[];
@@ -20,17 +18,11 @@ export function BabyButton(props: Props): JSX.Element {
         <button
           className="girl"
           onClick={() => {
-            {
-              props.handleAddToFavourites([
-                ...props.favourites,
-                props.BabyName,
-              ]);
-            }
-            {
-              props.handleAddtoBabyList(
-                props.BabyList.filter((x) => x.name !== props.BabyName.name)
-              );
-            }
+            props.handleAddToFavourites([...props.favourites, props.BabyName]);
+
+            props.handleAddtoBabyList(
+              props.BabyList.filter((x) => x.name !== props.BabyName.name)
+            );
           }}
         >
           {props.BabyName.name}
@@ -39,17 +31,11 @@ export function BabyButton(props: Props): JSX.Element {
         <button
           className="boy"
           onClick={() => {
-            {
-              props.handleAddToFavourites([
-                ...props.favourites,
-                props.BabyName,
-              ]);
-            }
-            {
-              props.handleAddtoBabyList(
-                props.BabyList.filter((x) => x.name !== props.BabyName.name)
-              );
-            }
+            props.handleAddToFavourites([...props.favourites, props.BabyName]);
+
+            props.handleAddtoBabyList(
+              props.BabyList.filter((x) => x.name !== props.BabyName.name)
+            );
           }}
         >
           {props.BabyName.name}{" "}
