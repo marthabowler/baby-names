@@ -1,10 +1,12 @@
 interface FavouriteItemProps {
-  handleAddToFavourites(input: BabyProp[]): void;
-  favourites: BabyProp[];
-  BabyName: BabyProp;
+  handleAddToFavourites(input: Baby[]): void;
+  favourites: Baby[];
+  BabyName: Baby;
+  handleAddtoBabyList: React.Dispatch<React.SetStateAction<Baby[]>>;
+  BabyList: Baby[];
 }
 
-type BabyProp = {
+type Baby = {
   name: string;
   sex: string;
   id: number;
@@ -16,26 +18,37 @@ export function FavouriteItem(props: FavouriteItemProps): JSX.Element {
       {props.BabyName.sex === "f" ? (
         <button
           className="girl"
-          onClick={() =>
-            removeFavourites(
-              props.BabyName.name,
-              props.favourites,
-              props.handleAddToFavourites
-            )
-          }
+          onClick={() => {
+            {
+              removeFavourites(
+                props.BabyName.name,
+                props.favourites,
+                props.handleAddToFavourites
+              );
+            }
+            {
+              props.handleAddtoBabyList([...props.BabyList, props.BabyName]);
+            }
+          }}
         >
           {props.BabyName.name}
         </button>
       ) : (
         <button
           className="boy"
-          onClick={() =>
-            removeFavourites(
-              props.BabyName.name,
-              props.favourites,
-              props.handleAddToFavourites
-            )
-          }
+          onClick={() => {
+            {
+              removeFavourites(
+                props.BabyName.name,
+                props.favourites,
+                props.handleAddToFavourites
+              );
+            }
+
+            {
+              props.handleAddtoBabyList([...props.BabyList, props.BabyName]);
+            }
+          }}
         >
           {props.BabyName.name}
         </button>
@@ -46,11 +59,11 @@ export function FavouriteItem(props: FavouriteItemProps): JSX.Element {
 
 export function removeFavourites(
   nameToRemove: string,
-  favourite: BabyProp[],
-  setFavourite: (name: BabyProp[]) => void
+  favourites: Baby[],
+  setFavourites: (name: Baby[]) => void
 ): void {
-  const favouriteRemoved = favourite.filter(
-    (name) => name.name !== nameToRemove
+  const favouriteRemoved = favourites.filter(
+    (fav) => fav.name !== nameToRemove
   );
-  setFavourite(favouriteRemoved);
+  setFavourites(favouriteRemoved);
 }

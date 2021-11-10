@@ -5,7 +5,7 @@ import { Search } from "./components/SearchBar";
 import { FavouriteItems } from "./components/favouriteslist";
 import babies from "./babies.json";
 
-type BabyProp = {
+type Baby = {
   name: string;
   sex: string;
   id: number;
@@ -14,8 +14,8 @@ type BabyProp = {
 function App(): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
   const [searchSex, setSearchSex] = useState<string>("");
-  const [favourites, setFavourites] = useState<BabyProp[]>([]);
-  const [babyList, setBabyList] = useState<BabyProp[]>(babies);
+  const [favourites, setFavourites] = useState<Baby[]>([]);
+  const [babyList, setBabyList] = useState<Baby[]>(babies);
 
   return (
     <>
@@ -28,6 +28,8 @@ function App(): JSX.Element {
       <FavouriteItems
         handleAddToFavourites={setFavourites}
         favourites={favourites}
+        handleAddtoBabyList={setBabyList}
+        BabyList={babyList}
       />
       <br />
       <h2>Find my baby!</h2>

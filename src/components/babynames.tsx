@@ -34,8 +34,11 @@ export function Babies(props: Props): JSX.Element {
         BabyName={{ name: bab.name, sex: bab.sex, id: bab.id }}
         handleAddToFavourites={props.handleAddToFavourites}
         favourites={props.favourites}
+        BabyList={props.BabyList}
+        handleAddtoBabyList={props.handleAddtoBabyList}
       />
     ));
+    console.log(props.BabyList);
     return objectBabies;
   }
   return (

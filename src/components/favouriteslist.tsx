@@ -3,6 +3,8 @@ import { FavouriteItem } from "./favourite";
 interface FavouriteItemsProps {
   handleAddToFavourites(input: Baby[]): void;
   favourites: Baby[];
+  handleAddtoBabyList: React.Dispatch<React.SetStateAction<Baby[]>>;
+  BabyList: Baby[];
 }
 
 type Baby = {
@@ -21,6 +23,8 @@ export function FavouriteItems(props: FavouriteItemsProps): JSX.Element {
           handleAddToFavourites={props.handleAddToFavourites}
           favourites={props.favourites}
           BabyName={{ name: fav.name, sex: fav.sex, id: fav.id }}
+          handleAddtoBabyList={props.handleAddtoBabyList}
+          BabyList={props.BabyList}
         />
       ))}
     </>
